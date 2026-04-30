@@ -1,4 +1,6 @@
 use std:: io;
+use std::thread;
+use std::time::Duration;
 mod story;
 fn get_input() -> i32 {
     let mut input = String:: new();
@@ -17,10 +19,56 @@ struct Slime {
         turn: i32,
     }
     fn ending(slime: &mut Slime) -> bool  {
-        if slime.turn == 30 {
-            print!("시스템: 슬라임이 힘을 각성 할려합니다. 엔딩 루트를 선택하세요.");
+        if slime.turn == 2 {
+            println!("!!!");
             println!("\n===============================");
-            println!("1. 전생했더니 슬라임이었던 건에 대하여 | 2. 멍청한줄 알았던 슬라임 알고보니 슬라임 용사? | 3. 이 힘은... 마왕? | 4. 일반 루트?? | 5. ???");
+            thread::sleep(Duration::from_secs(3));
+            println!("슬라임: ?");
+            println!("\n===============================");
+            thread::sleep(Duration::from_secs(5));
+            println!("슬라임: 뭐야? 방금... 어디서 깨지는 소리가...");
+            println!("\n===============================");
+            thread::sleep(Duration::from_secs(5));
+            println!("시스템: 에러 발생! 에러 발생! 에러 발생! 에러 발생! 에러 발생!");
+            println!("\n===============================");
+            thread::sleep(Duration::from_secs(5));
+            println!("슬라임: 응? 잠시만 뭐? 에러???");
+            thread::sleep(Duration::from_secs(5));
+            println!("\n===============================");
+            println!("시스템: 잠시 후 강제로 이동됩니다.");
+            thread::sleep(Duration::from_secs(5));
+            println!("\n===============================");
+            println!("슬라임: '_'? 뭐? 강제로 이동?? 뭔 소리야!!!");
+            thread::sleep(Duration::from_secs(5));
+            println!("\n===============================");
+            println!("슬라임: 제작자!! 야! 이거 게임이 이상해!");
+            thread::sleep(Duration::from_secs(5));
+            println!("\n===============================");
+            println!("제작자: 어디가 이상해 코드 잘 작동 하는데?");
+            thread::sleep(Duration::from_secs(5));
+            println!("\n===============================");
+            println!("슬라임: ...? 어? 에러 발생 이라는데?");
+            thread::sleep(Duration::from_secs(5));
+            println!("\n===============================");
+            println!("제작자: 사실 요즘 공부하고 바쁜데 너 신경쓰기 귀찮아서");
+            thread::sleep(Duration::from_secs(6));
+            println!("\n===============================");
+            println!("제작자: ㅂ2 난 다시 공부 하러 가야해서");
+            thread::sleep(Duration::from_secs(4));
+            println!("\n===============================");
+            println!("슬라임: 어..? 제작자? 야!");
+            thread::sleep(Duration::from_secs(4));
+            println!("\n===============================");
+            println!("시스템: 이동됩니다. 3.2.1");
+            thread::sleep(Duration::from_secs(3));
+            println!("\n===============================");
+            println!("슬라임: 제작자 너 내가 가만히 안ㄷ..");
+            thread::sleep(Duration::from_secs(1));
+            println!("\n===============================");
+            println!("제작자: 엔딩 루트를 선택해주세요. (슬라임을 괴롭혀주세요.)");
+            println!("\n===============================");
+            println!("1. 전생했더니 슬라임이었던 건에 대하여 | 2. 멍청한줄 알았던 슬라임 알고보니 슬라임 용사?");
+            println!("| 3. 이 힘은... 마왕? | 4. ??? | 5. 일반 루트");
             let end = get_input();
             match end {
                 1 => { story::num_1_end(slime);
