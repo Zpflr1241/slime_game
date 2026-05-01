@@ -2,6 +2,8 @@ use std:: io;
 use std::thread;
 use std::time::Duration;
 mod story;
+mod story_yes_1;
+mod story_no_1;
 fn get_input() -> i32 {
     let mut input = String:: new();
     io::stdin().read_line(&mut input).expect("입력 실패");
@@ -11,28 +13,44 @@ fn get_input() -> i32 {
     };
     input
 }
+fn get_input_2() -> String {
+    let mut input_2 = String:: new();
+    io::stdin().read_line(&mut input_2).expect("입력 실패");
+    let input_2: String =  input_2.trim().to_string(); 
+    input_2
+}
 struct Slime {
         hunger: i32,
         clean: i32,
         happy: i32,
         hung: i32,
         turn: i32,
+        
     }
     fn ending(slime: &mut Slime) -> bool  {
         if slime.turn == 2 {
+            println!("\n===============================");
+            println!("\n===============================");
+            println!("대사가 나올땐 입력을 멈추고 감상 해주시기 바랍니다.");
+            thread::sleep(Duration::from_secs(5));
+            println!("\n===============================");
+            println!("\n===============================");
             println!("!!!");
+            println!("\n===============================");
+            thread::sleep(Duration::from_secs(3));
+            println!("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             println!("\n===============================");
             thread::sleep(Duration::from_secs(3));
             println!("슬라임: ?");
             println!("\n===============================");
-            thread::sleep(Duration::from_secs(5));
-            println!("슬라임: 뭐야? 방금... 어디서 깨지는 소리가...");
+            thread::sleep(Duration::from_secs(4));
+            println!("슬라임: 뭐야? 방금...뭐가 보였는데..?");
             println!("\n===============================");
             thread::sleep(Duration::from_secs(5));
             println!("시스템: 에러 발생! 에러 발생! 에러 발생! 에러 발생! 에러 발생!");
             println!("\n===============================");
             thread::sleep(Duration::from_secs(5));
-            println!("슬라임: 응? 잠시만 뭐? 에러???");
+            println!("슬라임: 응? 잠시만..뭐? 에러???");
             thread::sleep(Duration::from_secs(5));
             println!("\n===============================");
             println!("시스템: 잠시 후 강제로 이동됩니다.");
@@ -51,9 +69,12 @@ struct Slime {
             thread::sleep(Duration::from_secs(5));
             println!("\n===============================");
             println!("제작자: 사실 요즘 공부하고 바쁜데 너 신경쓰기 귀찮아서");
-            thread::sleep(Duration::from_secs(6));
+            thread::sleep(Duration::from_secs(5));
             println!("\n===============================");
-            println!("제작자: ㅂ2 난 다시 공부 하러 가야해서");
+            println!("제작자: 장르를 바꿀려고 ㅇ_ㅇ");
+            thread::sleep(Duration::from_secs(4));
+            println!("\n===============================");
+            println!("제작자: 알아서 잘 살아남아^^");
             thread::sleep(Duration::from_secs(4));
             println!("\n===============================");
             println!("슬라임: 어..? 제작자? 야!");
@@ -65,30 +86,25 @@ struct Slime {
             println!("슬라임: 제작자 너 내가 가만히 안ㄷ..");
             thread::sleep(Duration::from_secs(1));
             println!("\n===============================");
-            println!("제작자: 엔딩 루트를 선택해주세요. (슬라임을 괴롭혀주세요.)");
+            println!("제작자: 수고해~");
             println!("\n===============================");
-            println!("1. 전생했더니 슬라임이었던 건에 대하여 | 2. 멍청한줄 알았던 슬라임 알고보니 슬라임 용사?");
-            println!("| 3. 이 힘은... 마왕? | 4. ??? | 5. 일반 루트");
-            let end = get_input();
-            match end {
-                1 => { story::num_1_end(slime);
-                    return false;
-            }
-                _ =>  { println!("없는 엔딩 입니다."); 
-                        return false;
-        }
-            }
+            println!("...");
+            thread::sleep(Duration::from_secs(3));
+            println!("\n===============================");
+            println!("제작자: 선택지가 나올 때 에는 괄호에 선택지를 보고 결정해주세요!");
+            thread::sleep(Duration::from_secs(6));
+            println!("제작자: 잘 선택 하시면...숨겨진 루트를 발견 할 수 있습니다.");
+            println!("\n===============================");
+            thread::sleep(Duration::from_secs(6));
+            println!("제작자: 그럼 이만...");
+            println!("\n===============================");
+            thread::sleep(Duration::from_secs(4));
+            story::story(slime);
+            return false;
         }
         return true;
     }
 fn play_slime(slime: &Slime ) -> bool {
-    if slime.happy >= 40 {
-        println!("\n===============================");
-        println!("슬라임: 드디어 내가 회사에 취업 했어 그동안 고마웠어!");
-        println!("일반 해피엔딩 달성!");
-        println!("===============================");
-        return false;
-    }
     if slime.hunger <= 0 {
         println!("(X _ x) 슬라임이 너무 배가 고파서 죽었습니다... 게임 오버");
         return false;
