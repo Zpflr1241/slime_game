@@ -75,7 +75,7 @@ struct Slime {
             thread::sleep(Duration::from_secs(4));
             println!("\n===============================");
             println!("제작자: 알아서 잘 살아남아^^");
-            thread::sleep(Duration::from_secs(4));
+            thread::sleep(Duration::from_secs(5));
             println!("\n===============================");
             println!("슬라임: 어..? 제작자? 야!");
             thread::sleep(Duration::from_secs(4));

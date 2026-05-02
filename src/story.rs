@@ -5,7 +5,7 @@ use std::time::Duration;
 
 
 pub fn story(slime: &Slime)  {
-    thread::sleep(Duration::from_secs(4));
+    thread::sleep(Duration::from_secs(2));
     println!("슬라임: 아오... 머리야");
     thread::sleep(Duration::from_secs(5));
     println!("\n===============================");
@@ -36,7 +36,7 @@ pub fn story(slime: &Slime)  {
     let input = get_input_2();
     match input.as_str() {
         "yes" => {
-            crate:: story_yes_1::story_true_1(slime);
+            crate:: story_yes_1::story_battle(slime);
             break;
         }
         "no" => {
