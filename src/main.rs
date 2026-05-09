@@ -29,6 +29,23 @@ struct Slime {
     }
     fn ending(slime: &mut Slime) -> bool  {
         if slime.turn == 2 {
+            
+            println!("\n===============================");     // 전생을 한 플레이어의 경우, 스토리 스킵이 필요할 수 있습니다.
+            println!("\n스토리를 스킵하시겠습니까? (yes / no)"); 
+            println!("\n===============================");     
+            loop {
+                let input_2 = get_input_2();
+                if input_2 == "yes" {
+                    story::story(slime);
+                    return false;
+                } else if input_2 == "no" {
+                    println!("게임을 계속 진행합니다.");
+                    break;
+                } else {
+                    println!("잘못 입력하셨습니다.");
+                }
+            }
+            
             println!("\n===============================");
             println!("\n===============================");
             println!("대사가 나올땐 입력을 멈추고 감상 해주시기 바랍니다.");
